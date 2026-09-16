@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dtm-agent"
+version = "0.1.0"
+description = "DTM に特化した AI エージェント: 参照曲の解析 → サンプル探索 → メロディ生成 → DAW への配置"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "anthropic>=1.6",
+    "librosa>=0.10",
+    "soundfile>=0.12",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "mido>=1.3",
+    "python-osc>=1.8",
+    "pydantic>=2.5",
+    "requests>=2.31",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+clap = ["laion-clap", "torch"]
+
+[project.scripts]
+dtm-agent = "dtm_agent.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["dtm_agent*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
