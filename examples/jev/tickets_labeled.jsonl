@@ -1,0 +1,11 @@
+# jev-usecases eval triage --dataset examples/jev/tickets_labeled.jsonl
+{"input": {"subject": "Charged twice", "body": "I was charged twice this month for the same plan. Please refund the duplicate."}, "label": "billing"}
+{"input": {"subject": "Invoice PDF", "body": "Can you resend the invoice for August? Accounting needs it."}, "label": "billing"}
+{"input": {"subject": "Crash on export", "body": "Every time I click Export to MIDI the app freezes and I have to force quit."}, "label": "bug"}
+{"input": {"subject": "Notes disappear", "body": "Notes I draw in the piano roll vanish after I save and reopen the project."}, "label": "bug"}
+{"input": {"subject": "Sidechain", "body": "How do I set up sidechain compression between the kick and the bass?"}, "label": "howto"}
+{"input": {"subject": "Keyboard shortcuts", "body": "Is there a list of keyboard shortcuts somewhere?"}, "label": "howto"}
+{"input": {"subject": "Can't log in", "body": "Password reset emails never arrive. I checked spam."}, "label": "account"}
+{"input": {"subject": "Change email", "body": "I want to move my account to a new email address."}, "label": "account"}
+{"input": {"subject": "Team plan", "body": "We are a studio with 12 producers. What does the team plan cost and does it include SSO?"}, "label": "sales"}
+{"input": {"subject": "Thanks", "body": "Just wanted to say the new update is great. No question."}, "label": "other"}

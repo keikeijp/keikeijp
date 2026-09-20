@@ -1,6 +1,15 @@
-import numpy as np
 import pytest
-import soundfile as sf
+
+try:  # dtm_agent のテストだけが必要とする。未インストールでも jev_usecases のテストは動くようにする
+    import numpy as np
+    import soundfile as sf
+except ImportError:  # pragma: no cover
+    np = sf = None
+
+
+def _require_audio() -> None:
+    if np is None or sf is None:
+        pytest.skip("numpy / soundfile が未インストール (pip install -e '.[dev]')")
 
 SR = 22050
 
@@ -31,6 +40,7 @@ def noise_burst(seconds, sr=SR, seed=1, lowpass=False):
 
 @pytest.fixture
 def reference_wav(tmp_path):
+    _require_audio()
     # A minor アルペジオ + 120 BPM のクリック、8 秒
     path = tmp_path / "ref.wav"
     sf.write(path, tone([220.0, 261.63, 329.63], 8.0, bpm=120), SR)
@@ -40,6 +50,7 @@ def reference_wav(tmp_path):
 @pytest.fixture
 def sample_library(tmp_path):
     """kick 系 (低域ノイズ) と hat 系 (高域ノイズ) と pad 系 (正弦波) の小さなライブラリ。"""
+    _require_audio()
     root = tmp_path / "samples"
     (root / "drums" / "kicks").mkdir(parents=True)
     (root / "drums" / "hats").mkdir(parents=True)

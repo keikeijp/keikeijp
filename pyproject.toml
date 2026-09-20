@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "dtm-agent"
 version = "0.1.0"
-description = "DTM に特化した AI エージェント: 参照曲の解析 → サンプル探索 → メロディ生成 → DAW への配置"
+description = "DTM に特化した AI エージェント (dtm_agent) と、TypeSafe Jev の業務ユースケース集 (jev_usecases)"
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
@@ -27,9 +27,10 @@ clap = ["laion-clap", "torch"]
 
 [project.scripts]
 dtm-agent = "dtm_agent.cli:main"
+jev-usecases = "jev_usecases.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["dtm_agent*"]
+include = ["dtm_agent*", "jev_usecases*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

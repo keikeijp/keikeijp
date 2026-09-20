@@ -2,6 +2,10 @@
 
 DTM (デスクトップミュージック) に特化した AI エージェントの土台です。
 
+> **同梱: `jev_usecases`** — TypeSafe AI の判断モデル Jev を業務に組み込むユースケース集 (問い合わせ仕分け、コマンドの実行前チェック、
+> コードレビューの絞り込み、文章のクセ検出、フィードの仕分け、ニュースの並べ替え、記憶の整理、ツールルーター、DTM のサンプル選択、評価ハーネス)。
+> `jev-usecases list` で一覧、`jev-usecases run guard --demo --backend mock` で API キーなしのデモ。詳細は [docs/JEV_USECASES.md](docs/JEV_USECASES.md)。
+
 「この曲のこの部分に合うサンプルを探して、メロディまで DAW に置いてほしい」
 「この曲みたいなのを作りたい」
 といった依頼を、Claude がツールを使って **参照曲の解析 → サンプル探索 → MIDI 生成 → DAW への配置** まで一貫して実行します。
@@ -97,7 +101,8 @@ print(run_agent("この曲みたいなローファイを 8 小節", session))
 ## 開発
 
 ```bash
-python -m pytest -q
+python -m pytest -q             # 全部
+python -m pytest -q tests/jev   # jev_usecases だけ (numpy / librosa 不要)
 ```
 
 テストは合成音声 (numpy で生成した A minor アルペジオ + クリック) を使うので、外部 API もサンプル素材も不要です。

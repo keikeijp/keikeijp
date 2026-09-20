@@ -1,0 +1,4 @@
+# jev-usecases run feed --input examples/jev/posts.jsonl
+{"post": "Bitcoin to 500k by December. Screenshot this.", "rules": ["crypto price predictions", "engagement bait"]}
+{"post": "We cut our CI from 40 to 12 minutes with test sharding. Config and numbers in the thread.", "rules": ["crypto price predictions", "engagement bait"]}
+{"post": "Like and repost if you agree that Mondays are the worst!", "rules": ["crypto price predictions", "engagement bait"]}

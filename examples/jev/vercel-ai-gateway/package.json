@@ -1,0 +1,11 @@
+{
+  "name": "jev-vercel-ai-gateway-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node evaluate.mjs"
+  },
+  "dependencies": {
+    "ai": "^7.0.107"
+  }
+}

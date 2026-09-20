@@ -7,3 +7,5 @@ dist/
 dtm_agent_out/
 .dtm_agent_index.json
 .env
+node_modules/
+examples/jev/out/
