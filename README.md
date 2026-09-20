@@ -101,3 +101,7 @@ python -m pytest -q
 ```
 
 テストは合成音声 (numpy で生成した A minor アルペジオ + クリック) を使うので、外部 API もサンプル素材も不要です。
+
+## その他: Claude Code Mod
+
+- [`claude-mods/jev-model-router/`](claude-mods/jev-model-router/) — Claude Code へのリクエストごとに TypeSafe の Jev でサブエージェントのモデル・メインのモデル (セッション開始時のみ)・effort を自動選択する Claude Code Mod (function hooks プラグイン)。詳細はそのディレクトリの README を参照。

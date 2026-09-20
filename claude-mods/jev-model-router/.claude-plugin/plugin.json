@@ -1,0 +1,140 @@
+{
+  "name": "jev-model-router",
+  "version": "0.1.0",
+  "description": "Routes every Claude Code request with TypeSafe's Jev decision model (direct API or Vercel AI Gateway): the subagent model at agent.spawn, the main model once at session start so the prompt cache survives, and the reasoning effort of every main-loop turn. Falls back to the engine's built-in classifier without a key. Fail-open everywhere.",
+  "author": {
+    "name": "keikeijp"
+  },
+  "license": "MIT",
+  "keywords": [
+    "mod",
+    "function-hooks",
+    "routing",
+    "productivity",
+    "jev",
+    "typesafe"
+  ],
+  "userConfig": {
+    "typesafeApiKey": {
+      "type": "string",
+      "title": "TypeSafe API key",
+      "description": "Key for TypeSafe's direct API (api.typesafe.ai). Preferred: it reports a calibrated confidence per answer.",
+      "default": "",
+      "sensitive": true
+    },
+    "gatewayApiKey": {
+      "type": "string",
+      "title": "Vercel AI Gateway API key",
+      "description": "Key for the Vercel AI Gateway (ai-gateway.vercel.sh). Used when no TypeSafe key is set.",
+      "default": "",
+      "sensitive": true
+    },
+    "provider": {
+      "type": "string",
+      "title": "Backend",
+      "description": "auto picks TypeSafe when its key is set, else the Gateway, else the engine's built-in classifier. Force one with typesafe / gateway / builtin.",
+      "default": "auto",
+      "options": [
+        "auto",
+        "typesafe",
+        "gateway",
+        "builtin"
+      ]
+    },
+    "typesafeBaseUrl": {
+      "type": "string",
+      "title": "TypeSafe base URL",
+      "description": "Empty uses https://api.typesafe.ai",
+      "default": ""
+    },
+    "typesafeModel": {
+      "type": "string",
+      "title": "TypeSafe model",
+      "description": "Empty uses jev-latest",
+      "default": ""
+    },
+    "gatewayBaseUrl": {
+      "type": "string",
+      "title": "AI Gateway base URL",
+      "description": "Empty uses https://ai-gateway.vercel.sh/v4/ai",
+      "default": ""
+    },
+    "gatewayModel": {
+      "type": "string",
+      "title": "AI Gateway model",
+      "description": "Empty uses typesafe-ai/jev",
+      "default": ""
+    },
+    "fastModel": {
+      "type": "string",
+      "title": "Fast tier",
+      "description": "Alias or full id for mechanical, local tasks",
+      "default": "haiku"
+    },
+    "balancedModel": {
+      "type": "string",
+      "title": "Balanced tier",
+      "description": "Alias or full id for ordinary engineering work",
+      "default": "sonnet"
+    },
+    "deepModel": {
+      "type": "string",
+      "title": "Deep tier",
+      "description": "Alias or full id for hard or high-stakes work",
+      "default": "opus"
+    },
+    "minUpgradeConfidence": {
+      "type": "number",
+      "title": "Confidence to spend more",
+      "description": "How sure Jev must be before the router raises the model or the effort. Being wrong costs money, so the bar is low.",
+      "default": 0.3
+    },
+    "minDowngradeConfidence": {
+      "type": "number",
+      "title": "Confidence to spend less",
+      "description": "How sure Jev must be before the router lowers the model or the effort. Being wrong starves a task, so the bar is high.",
+      "default": 0.6
+    },
+    "riskThreshold": {
+      "type": "number",
+      "title": "Risk override",
+      "description": "P(risky) above which the deep tier and at least high effort are taken regardless of the confidence bars.",
+      "default": 0.7
+    },
+    "routeSubagentModel": {
+      "type": "boolean",
+      "title": "Route subagent models",
+      "description": "Pick each subagent's model at agent.spawn. Subagents start with a fresh context, so this never breaks a cache.",
+      "default": true
+    },
+    "routeMainEffort": {
+      "type": "boolean",
+      "title": "Route the main loop's effort",
+      "description": "Raise or lower the reasoning effort of every main-conversation turn.",
+      "default": true
+    },
+    "mainModelRouting": {
+      "type": "string",
+      "title": "Main model routing",
+      "description": "session-start: pick the main model from the first prompt only, before any prompt cache exists (default). every-turn: re-route on every turn (invalidates the prompt cache). off: never touch the main model.",
+      "default": "session-start",
+      "options": [
+        "session-start",
+        "every-turn",
+        "off"
+      ]
+    },
+    "timeoutMs": {
+      "type": "number",
+      "title": "Latency budget (ms)",
+      "description": "How long to wait for Jev before letting the request through unchanged.",
+      "default": 800
+    },
+    "logDecisions": {
+      "type": "boolean",
+      "title": "Log decisions",
+      "description": "Write each classification and routing decision to the transcript and keep a status line under the prompt.",
+      "default": true
+    }
+  }
+}

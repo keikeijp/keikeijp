@@ -1,0 +1,14 @@
+{
+  "name": "jev-model-router",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Claude Code mod: routes model, effort and subagent model with TypeSafe's Jev",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "bun test tests",
+    "types": "sh scripts/fetch-types.sh",
+    "typecheck": "tsc -p tsconfig.json",
+    "validate": "claude plugin validate ."
+  }
+}

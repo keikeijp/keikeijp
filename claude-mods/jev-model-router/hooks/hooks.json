@@ -1,0 +1,6 @@
+{
+  "description": "Jev model router: classifies every prompt with TypeSafe's Jev (direct API or Vercel AI Gateway) at prompt.submit, applies the main loop's effort at turn.step on every turn and its model once at session start, and picks each subagent's model at agent.spawn.",
+  "modules": [
+    "./register.ts"
+  ]
+}
