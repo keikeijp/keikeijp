@@ -166,6 +166,18 @@ CLI の終了コード: 0 = run、2 = hold (人に聞く)、3 = deny、1 = エ�
 
 無料版 (`SKILL-free.md`、重複とゴール外の 2 チェック) をスキルサイトで配り、有料版 (`SKILL.md`、全チェック + hermes / grok bot 向けの設定 `SETUP.md`) を売る。
 
+## 4. リプレイ用ダッシュボード (`dashboard/`)
+
+動画にあった 3 列の画面です。左が速度 (jev と他モデルのレース、チェックごとの待ち時間)、中央がガードの判定 (jev の答えのバー、allow / to a human / refuse、直近の判定)、右が見積ウィジェット (依頼、jev の答え、価格帯、直近の依頼)。上部に checks / bad ones let in / jev cost、Replay ボタンで記録した呼び出しを実速度で再生します。何も実行・送信しません。
+
+```bash
+node dashboard/record.js          # 偽の 1 日 + 見積デモを記録 → dashboard/replay.json
+node dashboard/record.js --race   # 同じ state と質問を他モデル (既定: claude-haiku-4.5, gpt-5.6) にも投げて時間を計る。gateway キーが必要
+node dashboard/build.js           # replay.json を埋め込んだ dashboard/index.html を生成
+```
+
+`RACE_MODELS` 環境変数でレース相手のモデル ID を変えられます。mock で記録するとバナーとフッターにその旨が出ます。
+
 ## テスト
 
 ```bash
