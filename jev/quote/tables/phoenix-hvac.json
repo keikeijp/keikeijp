@@ -1,0 +1,66 @@
+{
+  "trade": "hvac",
+  "city": "Phoenix, AZ",
+  "currency": "USD",
+  "status": "sample",
+  "builtOn": "2026-09-22",
+  "note": "SAMPLE numbers for wiring up and demoing the widget. Not built from contractor pages: this sandbox had no web access. Run quote/BUILD-TABLE.md with Claude Code to replace every row and fill `sources` (>= 3 public price pages per service, cite the URL). The widget shows a SAMPLE banner and validate-table.js reports every service as a drop until then.",
+  "minSources": 3,
+  "sizes": [
+    { "name": "small", "maxSqft": 1200, "description": "1 to 2 ton unit, apartment, condo or casita, under 1,200 sq ft" },
+    { "name": "medium", "maxSqft": 2500, "description": "3 to 4 ton unit, typical single family home, 1,200 to 2,500 sq ft" },
+    { "name": "large", "maxSqft": null, "description": "5 ton or more, two units, multiple zones, over 2,500 sq ft, or commercial" }
+  ],
+  "urgencies": [
+    { "name": "flexible", "description": "no rush, no hurry, planning ahead, whenever works, just want a quote" },
+    { "name": "this_week", "description": "soon, in the next few days, this week" },
+    { "name": "today", "description": "today, right now, emergency, asap, urgent, nothing works at all, it is 110 out" }
+  ],
+  "services": {
+    "repair": {
+      "label": "AC repair",
+      "sources": [],
+      "rows": {
+        "small":  { "flexible": [150, 450],  "this_week": [200, 550],  "today": [300, 750] },
+        "medium": { "flexible": [250, 650],  "this_week": [325, 775],  "today": [450, 1000] },
+        "large":  { "flexible": [350, 900],  "this_week": [450, 1050], "today": [600, 1400] }
+      }
+    },
+    "install": {
+      "label": "AC installation / replacement",
+      "sources": [],
+      "rows": {
+        "small":  { "flexible": [4500, 7500],   "this_week": [4800, 8000],   "today": [5500, 9000] },
+        "medium": { "flexible": [6500, 11000],  "this_week": [7000, 11500],  "today": [8000, 13000] },
+        "large":  { "flexible": [9000, 16000],  "this_week": [9500, 17000],  "today": [11000, 19000] }
+      }
+    },
+    "maintenance": {
+      "label": "Tune-up / maintenance",
+      "sources": [],
+      "rows": {
+        "small":  { "flexible": [89, 189],  "this_week": [99, 219],   "today": [149, 299] },
+        "medium": { "flexible": [99, 229],  "this_week": [119, 259],  "today": [179, 349] },
+        "large":  { "flexible": [149, 329], "this_week": [179, 369],  "today": [249, 449] }
+      }
+    },
+    "thermostat": {
+      "label": "Thermostat install",
+      "sources": [],
+      "rows": {
+        "small":  { "flexible": [150, 400], "this_week": [175, 450], "today": [250, 550] },
+        "medium": { "flexible": [175, 450], "this_week": [200, 500], "today": [275, 600] },
+        "large":  { "flexible": [250, 700], "this_week": [300, 750], "today": [400, 900] }
+      }
+    },
+    "duct_cleaning": {
+      "label": "Duct cleaning",
+      "sources": [],
+      "rows": {
+        "small":  { "flexible": [250, 500],  "this_week": [300, 550],  "today": [400, 700] },
+        "medium": { "flexible": [350, 700],  "this_week": [400, 800],  "today": [550, 1000] },
+        "large":  { "flexible": [500, 1000], "this_week": [600, 1100], "today": [800, 1500] }
+      }
+    }
+  }
+}

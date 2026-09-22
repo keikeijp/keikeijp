@@ -1,0 +1,38 @@
+{
+  "profile": "trade",
+  "business": {
+    "name": "Desert Air Heating & Cooling",
+    "fictional": true,
+    "city": "Phoenix, AZ",
+    "phone": "+1 602 555 0142",
+    "ownerPhone": "+16025550142",
+    "bookingUrl": "https://example.com/book-a-visit",
+    "tagline": "Same-day AC repair across the Valley"
+  },
+  "table": "../tables/phoenix-hvac.json",
+  "services": [
+    { "name": "AC Repair", "row": "repair", "description": "something that used to work is broken: not cooling, blowing warm air, making noise, leaking water, tripping the breaker, won't turn on" },
+    { "name": "AC Installation & Replacement", "row": "install", "description": "a new unit, replacing an old or dead system, a new build or addition, upgrading to a bigger unit" },
+    { "name": "Tune-Up & Maintenance", "row": "maintenance", "description": "seasonal tune up, annual check up, filter change, inspection with nothing broken, get ready for summer" },
+    { "name": "Thermostat Install", "row": "thermostat", "description": "install or replace a thermostat, smart thermostat, nest, ecobee, thermostat not responding" },
+    { "name": "Duct Cleaning", "row": "duct_cleaning", "description": "clean the ducts, dusty vents, air quality, allergies, ductwork" },
+    { "name": "Something else", "row": null, "description": "anything not covered by the services above" }
+  ],
+  "sizeQuestion": {
+    "prompt": "Roughly how many square feet is the space?",
+    "bands": [
+      { "level": "small", "maxSqft": 1200 },
+      { "level": "medium", "maxSqft": 2500 },
+      { "level": "large", "maxSqft": null }
+    ]
+  },
+  "thresholds": { "service": 0.7, "size": 0.7, "needsVisit": 0.5, "isReal": 0.5 },
+  "demoInputs": [
+    { "text": "replace my old 4 ton ac unit" },
+    { "text": "it's making a weird noise" },
+    { "text": "my ac is blowing warm air and it's 110 out", "followUp": "1800" },
+    { "text": "Boost your Google ranking today! 500 backlinks guaranteed, click http://spam.example" },
+    { "text": "annual tune up for our 3200 sq ft house before summer, no rush" },
+    { "text": "install a nest thermostat this week, 1 bedroom condo" }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "jev-revenue-streams",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "jev (TypeSafe AI) decision toolkit: probe, instant quote widgets, and an agent guard skill. Zero runtime dependencies.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "probe": "node probe/probe.js",
+    "probe:mock": "JEV_PROVIDER=mock node probe/probe.js",
+    "quote:demo": "node quote/demo.js --config quote/configs/desert-air-hvac.json",
+    "quote:serve": "node quote/server.js --config quote/configs/desert-air-hvac.json",
+    "b2b:demo": "node quote/demo.js --config b2b/configs/valley-sign-co.json",
+    "b2b:serve": "node quote/server.js --config b2b/configs/valley-sign-co.json",
+    "table:validate": "node quote/validate-table.js quote/tables/phoenix-hvac.json b2b/catalogs/valley-sign-co.json",
+    "guard:day": "node guard/run-day.js",
+    "test": "node --test"
+  }
+}

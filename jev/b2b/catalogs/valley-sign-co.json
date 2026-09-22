@@ -1,0 +1,59 @@
+{
+  "business": "Valley Sign Co",
+  "city": "Phoenix, AZ",
+  "currency": "USD",
+  "status": "sample",
+  "builtOn": "2026-09-22",
+  "note": "SAMPLE bands for wiring up and demoing the b2b desk. Not cut from the shop's listed prices: this sandbox had no web access. Run b2b/BUILD-CATALOG.md with Claude Code to replace the bands from their real price list and fill `sources`. Bands hold the TOTAL price for that quantity band. A quantity above the top band always goes to a call.",
+  "minSources": 3,
+  "quantityBands": [
+    { "name": "single", "min": 1, "max": 1, "description": "one, a single sign or piece" },
+    { "name": "few", "min": 2, "max": 5, "description": "a couple, a few, two to five" },
+    { "name": "batch", "min": 6, "max": 24, "description": "a batch, six to about two dozen" },
+    { "name": "bulk", "min": 25, "max": 100, "description": "bulk, dozens, twenty-five to a hundred" }
+  ],
+  "items": {
+    "channel_letters": {
+      "label": "Channel letter sign",
+      "description": "illuminated channel letters, storefront sign, building sign, lit letters, LED letters",
+      "sources": [],
+      "bands": { "single": [2000, 6000], "few": [4000, 12000] }
+    },
+    "monument_sign": {
+      "label": "Monument sign",
+      "description": "monument sign, ground sign at the entrance, pylon, freestanding sign by the road",
+      "sources": [],
+      "bands": { "single": [5000, 15000] }
+    },
+    "vinyl_banner": {
+      "label": "Vinyl banner",
+      "description": "vinyl banner, grand opening banner, event banner, banner with grommets",
+      "sources": [],
+      "bands": { "single": [80, 250], "few": [150, 600], "batch": [400, 1500], "bulk": [1200, 4000] }
+    },
+    "yard_signs": {
+      "label": "Coroplast yard signs",
+      "description": "yard signs, lawn signs, coroplast signs with stakes, election signs, open house signs, double sided",
+      "sources": [],
+      "bands": { "single": [25, 60], "few": [45, 150], "batch": [90, 450], "bulk": [190, 1526] }
+    },
+    "vehicle_wrap": {
+      "label": "Vehicle wrap",
+      "description": "vehicle wrap, van wrap, truck wrap, car wrap, fleet graphics, partial wrap",
+      "sources": [],
+      "bands": { "single": [2500, 5500], "few": [4500, 15000] }
+    },
+    "window_graphics": {
+      "label": "Window graphics",
+      "description": "window graphics, window decals, frosted vinyl, storefront window lettering, perforated window film",
+      "sources": [],
+      "bands": { "single": [150, 600], "few": [300, 1500], "batch": [800, 3500] }
+    },
+    "other": {
+      "label": "Something else",
+      "description": "anything not in the catalog above",
+      "sources": [],
+      "bands": {}
+    }
+  }
+}

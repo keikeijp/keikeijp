@@ -101,3 +101,14 @@ python -m pytest -q
 ```
 
 テストは合成音声 (numpy で生成した A minor アルペジオ + クリック) を使うので、外部 API もサンプル素材も不要です。
+
+---
+
+## 別プロジェクト: `jev/`
+
+[jev](https://typesafe.ai) (TypeSafe AI の判断専用モデル) を使った 3 つの収益ストリームの実装です。DTM エージェントとは独立していて、Node 22+ だけで動きます。詳細は [jev/README.md](jev/README.md)。
+
+- `jev/probe/` — セットアップと動作確認
+- `jev/quote/` — 地元業者向け即時見積ウィジェット (価格表 + 1 回の jev 呼び出し)
+- `jev/b2b/` — 同じウィジェットの B2B カタログ版
+- `jev/guard/` — エージェントの行動を事前に判定するガードスキル

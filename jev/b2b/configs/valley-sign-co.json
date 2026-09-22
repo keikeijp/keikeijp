@@ -1,0 +1,23 @@
+{
+  "profile": "b2b",
+  "business": {
+    "name": "Valley Sign Co",
+    "fictional": true,
+    "city": "Phoenix, AZ",
+    "phone": "+1 602 555 0177",
+    "ownerPhone": "+16025550177",
+    "bookingUrl": "https://example.com/book-a-call",
+    "tagline": "Signs, wraps and banners for Valley businesses"
+  },
+  "catalog": "../catalogs/valley-sign-co.json",
+  "quantityQuestion": { "prompt": "Roughly how many do you need?" },
+  "thresholds": { "item": 0.7, "quantity": 0.7, "needsCall": 0.5 },
+  "demoInputs": [
+    { "text": "need a channel letter sign for our new storefront, about 18 inch letters" },
+    { "text": "signage for all our locations" },
+    { "text": "40 yard signs for the election, double sided with stakes" },
+    { "text": "wrap 3 vans with our logo, we need design too, by the end of next week" },
+    { "text": "grand opening banners", "followUp": "4" },
+    { "text": "250 yard signs" }
+  ]
+}
