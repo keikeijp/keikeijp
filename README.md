@@ -94,6 +94,19 @@ print(run_agent("この曲みたいなローファイを 8 小節", session))
 
 詳細は [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) と [docs/ROADMAP.md](docs/ROADMAP.md) を参照してください。
 
+## おまけ: indicator_lab (シストレ用の投資指標探索)
+
+DTM とは別の小さな道具箱です。情報係数 (IC) を軸に、分位別リターン・期間ごとの安定性・
+多重検定の補正・LASSO / ExtraTrees で投資指標をふるいにかけます。
+
+```bash
+pip install -e ".[indicator]"
+indicator-lab demo --select                  # 合成データで動作確認
+indicator-lab screen prices.csv --horizon 5  # Date, Close + 自作指標の列を持つ CSV
+```
+
+考え方とチェックリストは [docs/INDICATOR_SEARCH.md](docs/INDICATOR_SEARCH.md) を参照してください。
+
 ## 開発
 
 ```bash

@@ -22,14 +22,16 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=7"]
+dev = ["pytest>=7", "pandas>=2.0", "scikit-learn>=1.3"]
 clap = ["laion-clap", "torch"]
+indicator = ["pandas>=2.0", "scikit-learn>=1.3"]
 
 [project.scripts]
 dtm-agent = "dtm_agent.cli:main"
+indicator-lab = "indicator_lab.cli:main"
 
 [tool.setuptools.packages.find]
-include = ["dtm_agent*"]
+include = ["dtm_agent*", "indicator_lab*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
